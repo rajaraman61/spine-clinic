@@ -339,4 +339,21 @@
         $(this).parent('.pricing-nav-tab').removeClass('for-year');
     });
 
+
+    //=== Shortening words
+    var maxLength = 300;
+    $(".treatment-text").each(function(){
+        var myStr = $(this).text();
+        console.log(myStr.length);
+        if($.trim(myStr).length > maxLength){
+            console.log("True");
+            var newStr = myStr.substring(0, maxLength);
+            console.log(newStr);
+            var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+            console.log(removedStr);
+            $(this).empty().html(newStr);
+            $(this).append(' <a href="javascript:void(0);" href="blog-details.html" class="btn-link">Read more...</a>');
+            // $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+    });
 })(window.jQuery);
